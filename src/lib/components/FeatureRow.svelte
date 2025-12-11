@@ -10,10 +10,16 @@
     $: restDesc = splitDesc.slice(1).join('. ');
 </script>
 
-<div class="bg-[#F3F4F6] rounded-3xl p-8 md:p-12 transition-all hover:bg-gray-200 group">
+<div class="control-panel p-8 md:p-12 transition-all hover:bg-[var(--color-panel-medium)] group relative">
+    <!-- Status indicator -->
+    <div class="absolute top-4 right-4 flex gap-2">
+        <div class="status-light status-light-green"></div>
+        <div class="status-light status-light-amber"></div>
+    </div>
+    
     <!-- Header -->
     <div class="flex items-center gap-3 mb-8">
-        <div class="text-blue-600">
+        <div class="text-[var(--color-crt-green)]">
             {#if icon === 'lock'}
                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             {:else if icon === 'connect'}
@@ -28,11 +34,11 @@
                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             {/if}
         </div>
-        <h3 class="text-xl font-semibold text-gray-900">{title}</h3>
+        <h3 class="text-xl font-mono text-white uppercase tracking-wider">{title}</h3>
     </div>
 
     <!-- Image Placeholder / Abstract UI -->
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-8 aspect-[16/9] relative group-hover:shadow-md transition-shadow">
+    <div class="bevel-inset bg-[var(--color-panel-dark)] overflow-hidden mb-8 aspect-[16/9] relative crt-screen">
         {#if image === 'collateral'}
             <!-- Collateral UI -->
             <div class="p-6 h-full flex flex-col">
@@ -173,12 +179,12 @@
     <!-- Footer -->
     <div class="flex items-end justify-between gap-4">
         <div class="max-w-xl">
-            <p class="text-gray-900 text-lg leading-relaxed">
-                <span class="font-bold">{boldDesc}</span> <span class="text-gray-600">{restDesc}</span>
+            <p class="text-white text-lg leading-relaxed">
+                <span class="font-bold">{boldDesc}</span> <span class="text-gray-400">{restDesc}</span>
             </p>
         </div>
-        <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:bg-black hover:text-white hover:border-black transition-colors flex-shrink-0">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="bevel bg-[var(--color-metal)] w-10 h-10 flex items-center justify-center text-[var(--color-crt-green)] hover:bg-[var(--color-metal-light)] transition-colors flex-shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
             </svg>
